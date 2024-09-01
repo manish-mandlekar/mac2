@@ -7,17 +7,65 @@ gsap.registerPlugin(ScrollTrigger);
 const Page = () => {
   const boxRef = useRef(null);
   useEffect(() => {
-    // Use GSAP ScrollTrigger to animate the element on scroll
-    gsap.to(boxRef.current, {
+    var tl = gsap.timeline({
       scrollTrigger: {
         trigger: boxRef.current, // Element that triggers the animation
-        start: 'top 80%', // When the top of the box hits 80% from the top of the viewport
+        start: 'top 40%', // When the top of the box hits 80% from the top of the viewport
         end: 'top 20%', // When the top of the box hits 30% from the top of the viewport
         scrub: true,
          // Smooth scrubbing, takes 1 second to "catch up" to the scrollbar
         markers: true, // Show markers for debugging (start and end positions)
-      }// Duration of the animation
-    });
+      }
+    })
+    tl.to(".le",{
+      scrub:true,
+      duration:2,
+      left:"70%",
+      top:"0%"
+ })
+ tl.to(".re",{
+  scrub:true,
+  duration:2,
+  top: "4%",
+  left: "43%"
+})
+tl.to(".fe",{
+  scrub:true,
+  duration:2,
+  top: "8%",
+  left: "6%"
+})
+tl.to(".me",{
+  scrub:true,
+  duration:2,
+  top: "75%",
+  left: "2%"
+})
+tl.to(".se",{
+  scrub:true,
+  duration:2,
+  top: "35%",
+  left: "1%",
+  width:"30%",
+  scale:.8,
+})
+tl.to(".big",{
+  scrub:true,
+  duration:2,
+  scale: 1.1,
+  left : "51%",
+  top:"50%",
+  transform:"translate(-50%,-50%)"
+})
+tl.to(".ro",{
+  scrub:true,
+  duration:2,
+  top: "65%",
+  right: "0%",
+  width:"25%"
+})  
+    
+  
   }, []);
   return (
     <div ref={boxRef} className='w-full h-screen bg-black'>
